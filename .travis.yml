@@ -15,9 +15,9 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build -t simple-node .
-  - docker tag simple-node dsaved/simple-node:latest
+  - docker build -t environment-test .
+  - docker tag environment-test dsaved/environment-test:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push dsaved/simple-node
+  - docker push dsaved/environment-test
